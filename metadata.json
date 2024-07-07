@@ -2,6 +2,6 @@
   "name": "Hord",
   "website": "https://hord.fi",
   "description": "Testnet operator on Holesky for Hord",
-  "logo": "",
+  "logo": "https://dcentralab.github.io/eigenlayer-operator/logo-test-dc-operator.png",
   "twitter": ""
 }
