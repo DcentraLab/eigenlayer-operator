@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: eigenlayer-pv
+  labels:
+    type: eigenlayer-pv-label
+spec:
+  storageClassName: eigenlayer-sc
+  capacity:
+    storage: 400Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/eigenlayer"

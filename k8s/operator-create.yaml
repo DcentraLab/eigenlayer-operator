@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: operator-create
+spec:
+  containers:
+  - name: operator-create
+    image: alpine:latest
+    command:
+      - /bin/sh
+      - -c
+      - |
+        apk add git
+        apk add go
+        cd eigen
+        mkdir operator_keys
+        git clone https://github.com/Layr-Labs/eigenlayer-cli.git
+        cd eigenlayer-cli
+        mkdir -p build
+        go build -o build/eigenlayer cmd/eigenlayer/main.go
+        cd build
+        cp eigenlayer /usr/local/bin
+        echo "password" | eigenlayer operator keys create --insecure --key-type ecdsa testnet
+        echo "password" | eigenlayer operator keys create --insecure --key-type bls testnet
+        eigenlayer operator keys list
+#        cd /
+#        cp -r /root/.eigenlayer/operator_keys eigen/
+#        cd eigen/operator_keys
+        
+        
+        
+
+    volumeMounts:
+      - mountPath: /eigen
+        name: eigenlayer-pv
+      - mountPath: /root/.eigenlayer
+        name: root-eigenlayer-pv
+  volumes:
+    - name: eigenlayer-pv # main volume
+      persistentVolumeClaim:
+        claimName: eigenlayer-pvc
+    - name: root-eigenlayer-pv # root volume
+      persistentVolumeClaim:
+        claimName: root-eigenlayer-pvc

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ironfish-mainnet-internal
+  namespace: mainnet
+  labels:
+    app: ironfish-mainnet
+spec:
+  type: NodePort  #this opens a node in the vpc where the node operates
+  ports:
+    - name: "9039"
+      port: 9039
+      targetPort: 9039
+      protocol: TCP
+      nodePort: 31002
+  selector:
+    app: ironfish-mainnet  #this enables to go from port 9039 on the node itself and through it access port 9039 inside the pod of the ironfish-mainnet

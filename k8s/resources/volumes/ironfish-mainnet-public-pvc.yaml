@@ -1,0 +1,14 @@
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: ironfish-mainnet-public-pvc
+#  namespace: mainnet-public
+#  labels:
+#    app: ironfish-mainnet-public-pvc
+#spec:
+#  storageClassName: ironfish-sc
+#  accessModes:
+#  - ReadWriteMany
+#  resources:
+#    requests:
+#      storage: 400Gi

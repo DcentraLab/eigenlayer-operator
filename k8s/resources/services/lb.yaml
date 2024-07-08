@@ -1,0 +1,16 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: lb
+#  namespace: mainnet-public
+#spec:
+#  selector:
+#    app: ironfish-mainnet-public
+#  ports:
+#    - port: 80
+#      targetPort: 9033
+#      name: 'eth1'
+#    - port: 81
+#      targetPort: 9039
+#      name: 'eth1-ws'
+#  type: LoadBalancer

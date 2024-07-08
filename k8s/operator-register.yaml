@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: operator-register
+spec:
+  containers:
+  - name: operator-register
+    image: alpine:latest
+    command:
+      - /bin/sh
+      - -c
+      - |
+        cp eigen/eigenlayer-cli/build/eigenlayer /usr/local/bin
+        mkdir -p eigen/operator
+        cd eigen
+        eigenlayer operator keys list
+        echo "$OPERATOR_PASSWORD" | eigenlayer operator register operator.yaml
+        eigenlayer operator status operator.yaml
+#        eigenlayer operator config create --yes
+
+    env:
+      - name: OPERATOR_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: operator-password
+            key: password
+    volumeMounts:
+      - mountPath: /eigen
+        name: eigenlayer-pv
+      - mountPath: /root/.eigenlayer
+        name: root-eigenlayer-pv
+      - mountPath: /eigen/operator.yaml
+        subPath: operator.yaml
+        name: operator-yaml
+
+  volumes:
+    - name: operator-yaml
+      configMap:
+        name: operator.yaml
+    - name: eigenlayer-pv # main volume
+      persistentVolumeClaim:
+        claimName: eigenlayer-pvc
+    - name: root-eigenlayer-pv # root volume
+      persistentVolumeClaim:
+        claimName: root-eigenlayer-pvc

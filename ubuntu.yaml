@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu
+spec:
+  containers:
+  - name: ubuntu
+    image: ubuntu:latest
+    # Just spin & wait forever
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "cp what/eigenlayer-cli/build/eigenlayer /usr/local/bin; while true; do sleep 999; done;" ]
+    volumeMounts:
+      - mountPath: /what
+        name: eigenlayer-pv
+      - mountPath: /root/.eigenlayer
+        name: root-eigenlayer-pv
+  volumes:
+    - name: eigenlayer-pv # main volume
+      persistentVolumeClaim:
+        claimName: eigenlayer-pvc
+    - name: root-eigenlayer-pv # root volume
+      persistentVolumeClaim:
+        claimName: root-eigenlayer-pvc
