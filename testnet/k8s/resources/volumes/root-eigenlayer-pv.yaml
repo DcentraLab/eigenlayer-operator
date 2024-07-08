@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: root-eigenlayer-pv
+  namespace: eigenlayer
   labels:
     type: root-eigenlayer-pv-label
 spec:
@@ -11,4 +12,4 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/root-eigenlayer"
+    path: "/root-eigenlayer-holesky"

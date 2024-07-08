@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: root-eigenlayer-pvc
+  namespace: eigenlayer
   labels:
     app: root-eigenlayer-pvc
 spec:

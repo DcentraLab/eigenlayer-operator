@@ -40,6 +40,11 @@ spec:
        env:
          - name: DOCKER_TLS_CERTDIR
            value: ""
+         - name: OPERATOR_PASSWORD
+           valueFrom:
+             secretKeyRef:
+               name: operator-password
+               key: password
        volumeMounts:
          - mountPath: /eigen
            name: eigenlayer-pv

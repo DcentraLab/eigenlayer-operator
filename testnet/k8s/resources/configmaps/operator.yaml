@@ -2,12 +2,12 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: operator.yaml
-  namespace: default
+  namespace: eigenlayer
 data:
   operator.yaml: |
     operator:
-        address: "0xf719462ac1290a7d7c83b6de0b481b471efe2a22"
-        earnings_receiver_address: "0xf719462ac1290a7d7c83b6de0b481b471efe2a22"
+        address: "0x786d65583f62f454f134442711c6f24cd8250607"
+        earnings_receiver_address: "0x7992bf6Ba3879cE12ea7cd398eb8af32F3dD223C"
         
         # Operators have the option to set delegationApprover when they register.
         # If the delegationApprover is set to a nonzero value, then the delegationApprover address
@@ -24,7 +24,7 @@ data:
     el_delegation_manager_address: 0xA44151489861Fe9e3055d95adC98FbD462B948e7
     
     eth_rpc_url: http://beacon-chain:8545
-    private_key_store_path: /root/.eigenlayer/operator_keys/testnet.ecdsa.key.json
+    private_key_store_path: /root/.eigenlayer/operator_keys/hord-holesky.ecdsa.key.json
     signer_type: local_keystore
     chain_id: 17000
     fireblocks:

@@ -1,0 +1,18 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: lb-internal
+#  annotations:
+#    service.beta.kubernetes.io/aws-load-balancer-internal: "true"  # For AWS
+#  namespace: mainnet
+#spec:
+#  selector:
+#    app: ironfish-mainnet
+#  ports:
+#    - port: 82
+#      targetPort: 9033
+#      name: 'if'
+#    - port: 81
+#      targetPort: 9039
+#      name: 'ironfish-port'
+#  type: LoadBalancer
