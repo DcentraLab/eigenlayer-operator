@@ -2,6 +2,6 @@
   "name": "Hord",
   "website": "https://hord.fi",
   "description": "Hord is a Liquid ETH Staking pool that maximizes rewards with auto-compounding, MEV boosts, revenue share, distributed validators and maximum security.",
-  "logo": "https://dcentralab.github.io/eigenlayer-operator/hord-logo.png",
+  "logo": "https://raw.githubusercontent.com/DcentraLab/eigenlayer-operator/main/hord-logo.png",
   "twitter": "https://x.com/HordApp"
 }
