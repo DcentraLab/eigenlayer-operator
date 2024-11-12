@@ -1,7 +1,7 @@
 {
   "name": "Hord",
   "website": "https://hord.fi",
-  "description": "Testnet operator on Holesky for Hord",
-  "logo": "https://dcentralab.github.io/eigenlayer-operator/hordlogo.png",
-  "twitter": ""
+  "description": "Hord is a Liquid ETH Staking pool that maximizes rewards with auto-compounding, MEV boosts, revenue share, distributed validators and maximum security.",
+  "logo": "https://dcentralab.github.io/eigenlayer-operator/hord-logo.png",
+  "twitter": "https://x.com/HordApp"
 }
